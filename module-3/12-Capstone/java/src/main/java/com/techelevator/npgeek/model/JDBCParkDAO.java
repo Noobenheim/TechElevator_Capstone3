@@ -35,6 +35,20 @@ public class JDBCParkDAO implements ParkDAO {
 		
 		return parks;
 	}
+	
+	@Override
+	public Park getParkByParkCode(String parkCode) {
+		Park park = new Park(); 
+		String sqlQuery = "SELECT parkCode, parkName, state, acreage, elevationInFeet, milesOfTrail, " +
+						  "numberOfCampsites, climate, yearFounded, annualVisitorCount, inspirationalQuote, " + 
+						  "inspirationalQuoteSource, parkDescription, entryFee, numberOfAnimalSpecies " + 
+						  "FROM park WHERE parkCode = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlQuery, parkCode); 
+		while (results.next()) {
+			park = mapRowToPark(results); 
+		}
+		return park; 
+	}
 
 	/*
 	 * 	parkCode VARCHAR(10) PRIMARY KEY,
