@@ -1,13 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
-<!DOCTYPE html>
-<html>
-<head>
-<title>National Park Geek</title>
-</head>
-<body>
-<img src="<c:url value="img/logo.png" />" />
+<%@include file="common/header.jsp" %>
+
 	<div class="park-list">
 		<c:forEach items="${parks}" var="park">
 			<a href="details/${park.parkCode}">
@@ -23,5 +18,5 @@
 			</a>
 		</c:forEach>
 	</div>
-</body>
-</html>
+	
+<%@include file="common/footer.jsp" %>
