@@ -43,10 +43,14 @@ public class JDBCParkDAO implements ParkDAO {
 						  "numberOfCampsites, climate, yearFounded, annualVisitorCount, inspirationalQuote, " + 
 						  "inspirationalQuoteSource, parkDescription, entryFee, numberOfAnimalSpecies " + 
 						  "FROM park WHERE parkCode = ?";
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlQuery, parkCode); 
-		while (results.next()) {
-			park = mapRowToPark(results); 
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlQuery, parkCode);
+		
+		if( !results.next() ) {
+			return null;
 		}
+		
+		park = mapRowToPark(results);
+			
 		return park; 
 	}
 
