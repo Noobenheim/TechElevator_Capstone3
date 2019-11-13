@@ -10,6 +10,7 @@
 <img src="<c:url value="img/logo.png" />" />
 	<div class="park-list">
 		<c:forEach items="${parks}" var="park">
+			<a href="details/${park.parkCode}">
 			<div class="park-info">
 				<div class="park-image">
 					<img
@@ -19,6 +20,7 @@
 				<div class="park-state">${park.state}</div>
 				<div class="park-description">${park.parkDescription}</div>
 			</div>
+			</a>
 		</c:forEach>
 	</div>
 </body>
