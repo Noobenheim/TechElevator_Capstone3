@@ -15,7 +15,7 @@ public class JDBCForecastDAO implements ForcecastDAO {
 	private JdbcTemplate jdbcTemplate; 
 	
 	@Autowired
-	public public JDBCForecastDAO(DataSource dataSource) {
+	public JDBCForecastDAO(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource); 
 	}
 	
@@ -23,7 +23,7 @@ public class JDBCForecastDAO implements ForcecastDAO {
 	public List<Forecast> getForecastByParkCode(String parkCode) {
 		parkCode = parkCode.toUpperCase(); 
 		
-		List<Forecast> forecasts = new ArrayList<E>();
+		List<Forecast> forecasts = new ArrayList<>();
 		String sqlQuery = "SELECT parkcode, fivedayforecastvalue, low, high, forecast " +
 						  "FROM weather WHERE parkcode = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlQuery, parkCode);
