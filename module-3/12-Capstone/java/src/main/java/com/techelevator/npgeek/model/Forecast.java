@@ -90,10 +90,10 @@ public class Forecast {
 	}
 	
 	public static int convertFahrenheitToCelsius(int temp) {
-		return (int)((temp * 9.0 / 5.0) + 32.0);
+		return (int)((temp - 32.0) * 5.0 / 9.0);
 	}
 	
-	public static String[] getAdvisory(Weather weather, int highF, int lowF) {
+	public static String[] getAdvisories(Weather weather, int highF, int lowF) {
 		if( weather == null ) {
 			return new String[] {};
 		}
@@ -124,7 +124,7 @@ public class Forecast {
 		
 		return advisories.toArray(new String[advisories.size()]);
 	}
-	public String[] getAdvisory() {
-		return Forecast.getAdvisory(Weather.getWeatherByDescription(this.forecast), this.high, this.low);
+	public String[] getAdvisories() {
+		return Forecast.getAdvisories(Weather.getWeatherByDescription(this.forecast), this.high, this.low);
 	}
 }
