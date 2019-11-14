@@ -4,6 +4,8 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp">
 </c:import>
 
+<link rel="stylesheet" href="<c:url value="/css/surveyform.css" />" />
+
 <div class="survey-form">
 	<form:form action="survey" method="POST" modelAttribute="survey">
 		<div class="survey-parks">
@@ -24,9 +26,9 @@
 		<div class="survey-activity">
 			<form:label path="activityLevel">Activity Level</form:label>
 			<form:radiobuttons path="activityLevel" items="${activityLevels}" />
-			<form:errors path="activityLevel" />
+			<form:errors path="activityLevel" cssClass="error" />
 		</div>
-		<div>
+		<div class="submit">
 			<input type="submit" value="Submit" />
 		</div>
 	</form:form>

@@ -1,0 +1,32 @@
+
+.survey-form {
+	padding: 20px 20px 20px 25px;
+	color: #72B01D;
+	font-weight: bold;
+}
+
+.survey-parks {
+	padding: 10px;
+}
+
+.survey-email {
+	padding: 10px;
+}
+
+.survey-state {
+	padding: 10px;
+}
+
+.survey-activity {
+	padding: 10px;
+}
+
+.submit {
+	padding: 10px;
+}
+
+.error {
+	color: red;
+	font-weight: bold;
+}
+
