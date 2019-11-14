@@ -6,4 +6,4 @@
 <title>National Park Geek</title>
 </head>
 <body>
-<img src="<c:url value="../img/logo.png" />" />
+<img src="<c:url value="/img/logo.png" />" />
