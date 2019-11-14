@@ -9,7 +9,7 @@
 			<div class="park-info">
 				<div class="park-image">
 					<img
-						src="<c:url value="img/parks/${fn:toLowerCase(park.parkCode)}.jpg" />" />
+						src="<c:url value="img/parks/${park.parkCode.toLowerCase()}.jpg" />" />
 				</div>
 				<div class="park-name">${park.parkName}</div>
 				<div class="park-state">${park.state}</div>

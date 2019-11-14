@@ -1,17 +1,30 @@
 package com.techelevator.npgeek;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.techelevator.npgeek.model.ForecastDAO;
+import com.techelevator.npgeek.model.Park;
 import com.techelevator.npgeek.model.ParkDAO;
+import com.techelevator.npgeek.model.States;
+import com.techelevator.npgeek.model.Survey;
+import com.techelevator.npgeek.model.SurveyDAO;
 
 @Controller
 public class NpGeekController {
@@ -21,6 +34,9 @@ public class NpGeekController {
 	
 	@Autowired
 	private ForecastDAO forecastDAO;
+	
+	@Autowired
+	private SurveyDAO surveyDAO;
 	
 	@RequestMapping("/") 
 	public String displayHomePage(ModelMap map){
@@ -48,5 +64,44 @@ public class NpGeekController {
 		map.put("oppositeTemperature", tempInF ? "Celsius" : "Fahrenheit");
 		
 		return "details";
+	}
+	
+	@RequestMapping("/survey")
+	public String displaySurveyForm(ModelMap modelMap) {
+		if( !modelMap.containsAttribute("survey") ) {
+			modelMap.addAttribute("survey", new Survey());
+		}
+		Map<String,String> parkMap = new HashMap<>();
+		List<Park> parks = parkDAO.getAllParks();
+		for( Park park : parks ) {
+			parkMap.put(park.getParkCode(), park.getParkName());
+		}
+		modelMap.addAttribute("parks", parkMap);
+		modelMap.addAttribute("states", States.states);
+		modelMap.addAttribute("activityLevels", Survey.activityLevels);
+		return "surveyForm";
+	}
+	
+	@RequestMapping(path="/survey", method=RequestMethod.POST)
+	public String submitSurvey(@Valid @ModelAttribute("survey") Survey survey,
+							   BindingResult result, 
+							   RedirectAttributes flashScope) {
+		if( result.hasErrors() ) {
+			flashScope.addFlashAttribute("survey", survey);
+			flashScope.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX+"survey", result);
+			
+			return "redirect:/survey";
+		}
+		
+		surveyDAO.createSurveyResponse(survey);
+		
+		return "redirect:/favoriteParks";
+	}
+	
+	@RequestMapping("/favoriteParks")
+	public String displayFavoriteParks(ModelMap modelMap) {
+		modelMap.addAttribute("parks", surveyDAO.getSurveySummary());
+		
+		return "favoriteParks";
 	}
 }
