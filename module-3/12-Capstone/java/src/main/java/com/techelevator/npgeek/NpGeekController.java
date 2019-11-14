@@ -7,13 +7,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.techelevator.npgeek.model.ForecastDAO;
 import com.techelevator.npgeek.model.ParkDAO;
 
 @Controller
 public class NpGeekController {
 	
 	@Autowired
-	private ParkDAO parkDAO; 
+	private ParkDAO parkDAO;
+	
+	@Autowired
+	private ForecastDAO forecastDAO;
 	
 	@RequestMapping("/") 
 	public String displayHomePage(ModelMap map){
@@ -27,6 +31,7 @@ public class NpGeekController {
 	public String displayDetailsPage(@PathVariable String code, ModelMap map) {
 		
 		map.put("park", parkDAO.getParkByParkCode(code));
+		map.put("forecast", forecastDAO.getForecastByParkCode(code));
 		
 		return "details";
 	}

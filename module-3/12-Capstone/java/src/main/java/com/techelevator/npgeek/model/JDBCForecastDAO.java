@@ -11,7 +11,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JDBCForecastDAO implements ForcecastDAO {
+public class JDBCForecastDAO implements ForecastDAO {
 	private JdbcTemplate jdbcTemplate; 
 	
 	@Autowired
