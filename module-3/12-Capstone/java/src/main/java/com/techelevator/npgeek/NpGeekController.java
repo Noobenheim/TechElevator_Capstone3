@@ -1,5 +1,9 @@
 package com.techelevator.npgeek;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -16,7 +20,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.techelevator.npgeek.model.ForecastDAO;
+import com.techelevator.npgeek.model.Park;
 import com.techelevator.npgeek.model.ParkDAO;
+import com.techelevator.npgeek.model.States;
+import com.techelevator.npgeek.model.Survey;
+import com.techelevator.npgeek.model.SurveyDAO;
 
 @Controller
 public class NpGeekController {
@@ -59,7 +67,18 @@ public class NpGeekController {
 	}
 	
 	@RequestMapping("/survey")
-	public String displaySurveyForm() {
+	public String displaySurveyForm(ModelMap modelMap) {
+		if( !modelMap.containsAttribute("survey") ) {
+			modelMap.addAttribute("survey", new Survey());
+		}
+		Map<String,String> parkMap = new HashMap<>();
+		List<Park> parks = parkDAO.getAllParks();
+		for( Park park : parks ) {
+			parkMap.put(park.getParkCode(), park.getParkName());
+		}
+		modelMap.addAttribute("parks", parkMap);
+		modelMap.addAttribute("states", States.states);
+		modelMap.addAttribute("activityLevels", Survey.activityLevels);
 		return "surveyForm";
 	}
 	
@@ -74,11 +93,15 @@ public class NpGeekController {
 			return "redirect:/survey";
 		}
 		
+		surveyDAO.createSurveyResponse(survey);
 		
+		return "redirect:/favoriteParks";
 	}
 	
 	@RequestMapping("/favoriteParks")
-	public String displayFavoriteParks() {
+	public String displayFavoriteParks(ModelMap modelMap) {
+		modelMap.addAttribute("parks", surveyDAO.getSurveySummary());
+		
 		return "favoriteParks";
 	}
 }

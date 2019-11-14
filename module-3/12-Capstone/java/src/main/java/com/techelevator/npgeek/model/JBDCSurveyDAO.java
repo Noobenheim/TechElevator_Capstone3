@@ -24,7 +24,7 @@ public class JBDCSurveyDAO implements SurveyDAO{
 	public List<SurveySummary> getSurveySummary() {
 		List<SurveySummary> surveyResponses = new ArrayList<>(); 
 		String sqlQuery = "SELECT park.parkcode, park.parkname, COUNT(*) AS numberOfSurveys " + 
-						  "FROM survey_result" + 
+						  "FROM survey_result " + 
 						  "INNER JOIN park USING(parkcode) " + 
 						  "GROUP BY park.parkcode " + 
 						  "ORDER BY numberOfSurveys DESC, park.parkname"; 

@@ -1,11 +1,23 @@
 package com.techelevator.npgeek.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 public class Survey {
+	
+	public static List<String> activityLevels = new ArrayList<>();
+	
+	static {
+		activityLevels.add("Inactive");
+		activityLevels.add("Sedentary");
+		activityLevels.add("Active");
+		activityLevels.add("Extremely Active");
+	}
 	
 	private Long surveyId;
 	
