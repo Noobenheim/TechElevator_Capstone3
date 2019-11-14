@@ -5,20 +5,25 @@ import java.util.List;
 
 public class Forecast {
 	public enum Weather {
-		SNOW("snow"),
-		PARTLY_CLOUDY("partly cloudy"),
-		CLOUDY("cloudy"),
-		RAIN("rain"),
-		SUNNY("sunny"),
-		THUNDERSTORMS("thunderstorms");
+		SNOW("snow", "snow"),
+		PARTLY_CLOUDY("partly cloudy", "partlyCloudy"),
+		CLOUDY("cloudy", "cloudy"),
+		RAIN("rain", "rain"),
+		SUNNY("sunny", "sunny"),
+		THUNDERSTORMS("thunderstorms", "thunderstorms");
 		
 		private String description;
+		private String imageName;
 		
-		private Weather(String description) {
+		private Weather(String description, String imageName) {
 			this.description = description;
+			this.imageName = imageName;
 		}
 		
 		public static Weather getWeatherByDescription(String description) {
+			if( description == null ) {
+				return null;
+			}
 			for( Weather weather : Weather.values() ) {
 				if( weather.description.toLowerCase().equals(description.toLowerCase()) ) {
 					return weather;
@@ -28,6 +33,9 @@ public class Forecast {
 		}
 		public String getDescription() {
 			return this.description;
+		}
+		public String getImageName() {
+			return this.imageName;
 		}
 	}
 	
@@ -72,6 +80,13 @@ public class Forecast {
 	}
 	public void setForecast(String forecast) {
 		this.forecast = forecast;
+	}
+	public String getImageName() {
+		Weather weather = Weather.getWeatherByDescription(forecast);
+		if( weather == null ) {
+			return "";
+		}
+		return weather.getImageName();
 	}
 	
 	public static int convertFahrenheitToCelsius(int temp) {
