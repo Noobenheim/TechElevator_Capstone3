@@ -10,9 +10,35 @@
 
 .park-list {
 	display: flex;
+	flex-wrap: wrap;
+}
+
+.park-info {
+	display: grid;
+	grid-template-columns: [col1] auto [col2] auto;
+	grid-template-rows: [row1] auto [row2] 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 10px;
+	padding: 20px 20px 20px 20px;
+}
+
+.park-image {
+	grid-column: col1;
+	grid-row: row1/span 2;;
 }
 
 .park-image img {
 	width: 300px;
-	
 }
+
+.park-name {
+	grid-column: col2;
+	grid-row: row1;
+	font-weight: bold;
+}
+
+.park-description {
+	grid-column: col2;
+	grid-row: row2;
+}
+
