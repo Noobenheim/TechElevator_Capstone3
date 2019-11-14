@@ -60,5 +60,6 @@
 	</div>
 </c:if>
 
+<%@include file="forecast.jsp" %>
 
 <%@include file="common/footer.jsp" %>
