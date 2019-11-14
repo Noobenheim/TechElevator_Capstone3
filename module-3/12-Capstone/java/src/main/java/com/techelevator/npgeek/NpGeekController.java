@@ -31,7 +31,7 @@ public class NpGeekController {
 	public String displayDetailsPage(@PathVariable String code, ModelMap map) {
 		
 		map.put("park", parkDAO.getParkByParkCode(code));
-		map.put("forecast", forecastDAO.getForecastByParkCode(code));
+		map.put("forecasts", forecastDAO.getForecastByParkCode(code));
 		
 		return "details";
 	}
