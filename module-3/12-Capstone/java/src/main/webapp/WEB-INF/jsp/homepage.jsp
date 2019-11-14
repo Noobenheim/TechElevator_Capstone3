@@ -1,7 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
-<%@include file="common/header.jsp" %>
+<c:import url="/WEB-INF/jsp/common/header.jsp">
+</c:import>
 
 	<div class="park-list">
 		<c:forEach items="${parks}" var="park">
@@ -19,4 +20,5 @@
 		</c:forEach>
 	</div>
 	
-<%@include file="common/footer.jsp" %>
+<c:import url="/WEB-INF/jsp/common/footer.jsp">
+</c:import>

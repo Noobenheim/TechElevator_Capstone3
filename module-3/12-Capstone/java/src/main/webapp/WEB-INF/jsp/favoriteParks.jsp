@@ -1,7 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<%@include file="common/header.jsp"%>
+<c:import url="/WEB-INF/jsp/common/header.jsp">
+</c:import>
 
 <div class="favorite-parks">
 	<c:forEach items="${parks}" var="park">
@@ -21,4 +22,5 @@
 
 </div>
 
-<%@include file="common/footer.jsp"%>
+<c:import url="/WEB-INF/jsp/common/footer.jsp">
+</c:import>

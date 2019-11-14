@@ -5,6 +5,9 @@
 <html>
 <head>
 <link rel="stylesheet" href="<c:url value="/css/site.css" />" />
+<c:if test="${ param.css != null }">
+	<link rel="stylesheet" href="<c:url value="/css/${ param.css }.css" />" />
+</c:if>
 <title>National Park Geek</title>
 </head>
 <body>

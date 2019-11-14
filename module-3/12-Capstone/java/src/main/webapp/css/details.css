@@ -1,0 +1,59 @@
+.park-details {
+	margin: 0 50px;
+}
+.park-details .park-image {
+	text-align: center;
+}
+.park-details .park-image img {
+	width: 100%;
+}
+.park-details .park-name {
+	font-size: 3em;
+	font-weight: bold;
+	text-align: center;
+	margin: 15px;
+}
+.park-details .park-information > div > span.label {
+	font-weight: bold;
+}
+.park-details .park-information-header {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+}
+.park-details .park-information {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+.park-details .park-quote .value {
+	position: relative;
+	background: #328709;
+	border-radius: .4em;
+	font-size: 18px;
+	display: inline-block;
+	text-align: center;
+	padding: 35px;
+	margin-bottom: 1em;
+}
+.park-details .park-quote .value:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 0.906em solid transparent;
+	border-top-color: #328709;
+	border-bottom: 0;
+	border-right: 0;
+	margin-left: -0.453em;
+	margin-bottom: -0.906em;
+}
+.park-details .park-quote .park-quote-source {
+	padding: 0 20px;
+	font-style: italic;
+	text-align: center;
+}
+.park-details .park-description {
+	text-align: justify;
+	padding-right: 25px;
+}
