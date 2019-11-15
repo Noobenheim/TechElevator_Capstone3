@@ -13,7 +13,7 @@
 	flex-wrap: wrap;
 }
 
-.park-info {
+.park-list .park-info {
 	display: grid;
 	grid-template-columns: [col1] auto [col2] auto;
 	grid-template-rows: [row1] auto [row2] 1fr;
@@ -22,22 +22,22 @@
 	padding: 20px 20px 20px 20px;
 }
 
-.park-image {
+.park-list .park-image {
 	grid-column: col1;
 	grid-row: row1/span 2;;
 }
 
-.park-image img {
+.park-list .park-image img {
 	width: 300px;
 }
 
-.park-name {
+.park-list .park-name {
 	grid-column: col2;
 	grid-row: row1;
 	font-weight: bold;
 }
 
-.park-description {
+.park-list .park-description {
 	grid-column: col2;
 	grid-row: row2;
 }

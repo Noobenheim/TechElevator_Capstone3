@@ -57,3 +57,40 @@
 	text-align: justify;
 	padding-right: 25px;
 }
+
+
+
+/* forecast */
+.five-day-forecast {
+	display: grid;
+	grid-template-columns: 10fr repeat(4, 3fr);
+	grid-column-gap: 20px;
+	align-items: center;
+	margin: 50px;
+}
+.five-day-forecast > a {
+	grid-column: 1/span 5
+}
+.five-day-forecast > div img {
+	width: 100%;
+	height: auto;
+}
+.five-day-forecast > div {
+	text-align: center;
+	padding: 10px;
+}
+.five-day-forecast > div.forecast-day-1 {
+	margin-right: 150px;
+	background-color: #72B01D;
+	border-radius: 17px;
+}
+.five-day-forecast > div {
+	background-color: #3F7D20;
+}
+.five-day-forecast > div.forecast-day-1:before {
+	content: "Today";
+	font-weight: bold;
+	font-size: 18px;
+	text-align: center;
+	display: block;
+}
