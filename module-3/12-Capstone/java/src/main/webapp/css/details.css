@@ -1,5 +1,5 @@
 .park-details {
-	margin: 0 50px;
+	margin: 0 20px;
 }
 .park-details .park-image {
 	text-align: center;
@@ -65,8 +65,9 @@
 	display: grid;
 	grid-template-columns: 10fr repeat(4, 3fr);
 	grid-column-gap: 20px;
-	align-items: center;
-	margin: 50px;
+	justify-items: center;
+	margin: 20px;
+	align-items: stretch;
 }
 .five-day-forecast > a {
 	grid-column: 1/span 5
@@ -78,11 +79,11 @@
 .five-day-forecast > div {
 	text-align: center;
 	padding: 10px;
+	border-radius: 17px;
 }
 .five-day-forecast > div.forecast-day-1 {
 	margin-right: 150px;
 	background-color: #72B01D;
-	border-radius: 17px;
 }
 .five-day-forecast > div {
 	background-color: #3F7D20;

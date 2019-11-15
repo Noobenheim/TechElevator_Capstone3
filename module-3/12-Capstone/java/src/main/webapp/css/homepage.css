@@ -20,6 +20,7 @@
 
 .park-list .park-image img {
 	width: 300px;
+	border-radius: 100%;
 }
 
 .park-list .park-name {
@@ -39,7 +40,7 @@ a {
 }
 
 a:hover {
-	color: #72B01D;
+	color: #38570e;
 }
 
 

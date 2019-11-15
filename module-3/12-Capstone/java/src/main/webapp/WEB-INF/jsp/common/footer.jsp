@@ -1,6 +1,7 @@
+</section>
 </body>
 
-<link rel="stylesheet" href="<c:url value="/css/header.css" />
+<link rel="stylesheet" href="<c:url value="/css/header.css" />" />
 
 <div class="footer">
 
