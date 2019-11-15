@@ -4,6 +4,8 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp">
 </c:import>
 
+<link rel="stylesheet" href="<c:url value="/css/homepage.css" />" />
+
 	<div class="park-list">
 		<c:forEach items="${parks}" var="park">
 			<a href="details/${park.parkCode}">
