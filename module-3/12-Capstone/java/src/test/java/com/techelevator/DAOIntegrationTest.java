@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SingleConnectionDataSource;
 
 public abstract class DAOIntegrationTest {
@@ -14,19 +15,21 @@ public abstract class DAOIntegrationTest {
 	/* Using this particular implementation of DataSource so that
 	 * every database interaction is part of the same database
 	 * session and hence the same database transaction */
-	private static SingleConnectionDataSource dataSource;
+	protected static SingleConnectionDataSource dataSource;
+	protected static JdbcTemplate jdbc; 
 
 	/* Before any tests are run, this method initializes the datasource for testing. */
 	@BeforeClass
 	public static void setupDataSource() {
 		dataSource = new SingleConnectionDataSource();
-		dataSource.setUrl("jdbc:postgresql://localhost:5432/historygeek");
+		dataSource.setUrl("jdbc:postgresql://localhost:5432/npgeek");
 		dataSource.setUsername("postgres");
 		dataSource.setPassword("postgres1");
 		/* The following line disables autocommit for connections
 		 * returned by this DataSource. This allows us to rollback
 		 * any changes after each test */
 		dataSource.setAutoCommit(false);
+		jdbc = new JdbcTemplate(dataSource); 
 	}
 
 	/* After all tests have finished running, this method will close the DataSource */
