@@ -1,8 +1,23 @@
 .park-details {
 	margin: 0 20px;
 }
+.park-details .park-details-header {
+	display: grid;
+	grid-template-areas:
+		"img info"
+		"img quote";
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto 1fr;
+	grid-column-gap: 20px;
+}
+.park-details .park-quote {
+	grid-area: quote;
+	align-self: center;
+	justify-self: center;
+}
 .park-details .park-image {
 	text-align: center;
+	grid-area: img;
 }
 .park-details .park-image img {
 	width: 100%;
@@ -23,6 +38,7 @@
 .park-details .park-information {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
+	grid-area: info;
 }
 .park-details .park-quote .value {
 	position: relative;
@@ -63,11 +79,12 @@
 /* forecast */
 .five-day-forecast {
 	display: grid;
-	grid-template-columns: 10fr repeat(4, 3fr);
+	grid-template-columns: repeat(5, 1fr);
 	grid-column-gap: 20px;
 	justify-items: center;
 	margin: 20px;
 	align-items: stretch;
+	padding-bottom: 200px;
 }
 .five-day-forecast > a {
 	grid-column: 1/span 5
@@ -82,11 +99,11 @@
 	border-radius: 17px;
 }
 .five-day-forecast > div.forecast-day-1 {
-	margin-right: 150px;
 	background-color: #72B01D;
 }
 .five-day-forecast > div {
 	background-color: #3F7D20;
+	position: relative;
 }
 .five-day-forecast > div.forecast-day-1:before {
 	content: "Today";
@@ -94,4 +111,23 @@
 	font-size: 18px;
 	text-align: center;
 	display: block;
+}
+.five-day-forecast .forecast-high:before {
+	content: "High: ";
+	font-weight: bold;
+}
+.five-day-forecast .forecast-low:before {
+	content: "Low: ";
+	font-weight: bold;
+}
+.five-day-forecast .forecast-advisory {
+	background-color: #f00;
+	font-weight: bold;
+	padding: 10px;
+	font-size: 14pt;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	left: 0;
+	border-radius: 18px;
 }
