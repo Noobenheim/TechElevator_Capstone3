@@ -7,7 +7,6 @@
 		<c:forEach items="${forecasts}" var="forecast">
 			<div class="forecast-day-${forecast.fiveDayForecastValue}">
 				<div class="weather-image">
-					${ forecast.forecast }
 					<c:choose>
 						<c:when test="${ forecast.forecast == 'snow' }">
 							<div class="icon flurries">

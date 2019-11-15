@@ -109,4 +109,59 @@ public class Park {
 		this.numberOfAnimalSpecies = numberOfAnimalSpecies;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if( !(o instanceof Park) ) {
+			return false;
+		}
+		Park test = (Park)o;
+
+		if( this.getAcreage() != test.getAcreage() ) {
+			return false;
+		}
+		if( this.getAnnualVisitorCount() != test.getAnnualVisitorCount() ) {
+			return false;
+		}
+		if( !this.getClimate().equals(test.getClimate()) ) {
+			return false;
+		}
+		if( this.getElevationInFeet() != test.getElevationInFeet() ) {
+			return false;
+		}
+		if( this.getEntryFee() != test.getEntryFee() ) {
+			return false;
+		}
+		if( !this.getInspirationalQuote().equals(test.getInspirationalQuote()) ) {
+			return false;
+		}
+		if( !this.getInspirationalQuoteSource().equals(test.getInspirationalQuoteSource()) ) {
+			return false;
+		}
+		if( this.getMilesOfTrail() != test.getMilesOfTrail() ) {
+			return false;
+		}
+		if( this.getNumberOfAnimalSpecies() != test.getNumberOfAnimalSpecies() ) {
+			return false;
+		}
+		if( this.getNumberOfCampsites() != test.getNumberOfCampsites() ) {
+			return false;
+		}
+		if( !this.getParkCode().equals(test.getParkCode()) ) {
+			return false;
+		}
+		if( !this.getParkDescription().equals(test.getParkDescription()) ) {
+			return false;
+		}
+		if( !this.getParkName().equals(test.getParkName()) ) {
+			return false;
+		}
+		if( !this.getState().equals(test.getState()) ) {
+			return false;
+		}
+		if( this.getYearFounded() != test.getYearFounded() ) {
+			return false;
+		}
+		
+		return true;
+	}
 }
