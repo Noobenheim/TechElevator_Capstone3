@@ -3,7 +3,18 @@
 <link href="<c:url value="/css/animatedWeather.css" />" rel="stylesheet" />
 
 	<div class="five-day-forecast">
-		<a href="?unit=${oppositeTemperature}">Switch to ${oppositeTemperature}</a>
+		<div class="unit-switch">
+			<h2>Unit</h2>
+			<form>
+				&#176;F
+				<label class="switch">
+					<input type="hidden" name="unit" value="${ oppositeTemperature }" />
+					<input type="checkbox"<c:if test="${ !tempInF }">checked="checked"</c:if> onchange="this.parentElement.parentElement.submit();" />
+					<span class="slider round"></span>
+				</label>
+				&#176;C
+			</form>
+		</div>
 		<c:forEach items="${forecasts}" var="forecast">
 			<div class="forecast-day-${forecast.fiveDayForecastValue}">
 				<div class="weather-image">
@@ -56,10 +67,7 @@
 							</div>
 						</c:when>
 					</c:choose>
-					<!-- 
-					<img
-						src="<c:url value="/img/weather/${forecast.imageName}.png" />" />
-						 -->
+					<img src="<c:url value="/img/weather/${forecast.imageName}.png" />" />
 				</div>
 				<div class="forecast-high">
 					<c:if test="${ tempInF }">
@@ -79,11 +87,11 @@
 					</c:if>
 					&#176;${temperatureUnit}
 				</div>
-					<div>
-					<c:forEach items="${forecast.advisories}" var="advisories">
+			</div>
+			<div class="forecast-advisories-${forecast.fiveDayForecastValue}">
+			<c:forEach items="${forecast.advisories}" var="advisories">
 				<div class="forecast-advisory">${advisories}</div>
-					</c:forEach>
-					</div>
+			</c:forEach>
 			</div>
 		</c:forEach>
 	</div>

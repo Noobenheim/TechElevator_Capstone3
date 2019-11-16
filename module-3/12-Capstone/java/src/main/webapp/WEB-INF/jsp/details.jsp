@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp">
 	<c:param name="css" value="details" />
@@ -23,7 +24,7 @@
 			</div>
 			<div class="park-acreage">
 				<span class="label">Acreage: </span>
-				<span class="value">${park.acreage}</span>
+				<span class="value"><fmt:formatNumber value="${park.acreage}" /></span>
 			</div>
 			<div class="park-elevation">
 				<span class="label">Elevation (ft): </span>
@@ -47,7 +48,7 @@
 			</div>
 			<div class="park-visitors">
 				<span class="label">Annual Visitor Count: </span>
-				<span class="value">${park.annualVisitorCount}</span>
+				<span class="value"><fmt:formatNumber value="${park.annualVisitorCount}" /></span>
 			</div>
 			<div class="park-entry">
 				<span class="label">Entry Fee: </span>
@@ -55,7 +56,7 @@
 			</div>
 			<div class="park-animals">
 				<span class="label">Number of Animal Species: </span>
-				<span class="value">${park.numberOfAnimalSpecies}</span>
+				<span class="value"><fmt:formatNumber value="${park.numberOfAnimalSpecies}" /></span>
 			</div>
 		</div>
 		<div class="park-quote">

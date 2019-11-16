@@ -26,6 +26,22 @@ header {
 	z-index: 1000;
 }
 
+header img {
+	overflow: hidden;
+	transition: all 0.2s ease-in;
+}
+#top-logo {
+	width: 100%;
+}
+#smaller-logo {
+	width: 0;
+}
+header.scrolled #top-logo {
+	width: 0;
+}
+header.scrolled #smaller-logo {
+	width: 150px;
+}
 section {
 	background-color: #A5FFD6;
 	margin: 5px 50px;
@@ -59,4 +75,50 @@ li a {
 
 .footer {
 	text-align: center;
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+}
+.switch input[type=checkbox] { 
+	display: none;
+}
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #3F7D20;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	transition: .4s;
+}
+
+input:checked + .slider {
+}
+input:focus + .slider {
+	box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+	transform: translateX(26px);
+}
+.slider.round {
+	border-radius: 34px;
+}
+.slider.round:before {
+	border-radius: 50%;
 }
