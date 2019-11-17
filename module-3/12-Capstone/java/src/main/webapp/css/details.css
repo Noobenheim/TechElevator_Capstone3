@@ -34,8 +34,7 @@
 .park-details .park-name.scrolled {
 	color: lime;
 	display: inline-block;
-	left: 50%;
-	transform: translateX(-50%);
+	left: 100%;
 }
 .park-details .park-information > div > span.label {
 	font-weight: bold;
@@ -217,7 +216,7 @@
 		transform: none;
 	}
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1175px) {
 	.park-details .park-details-header {
 		grid-template-areas:
 	        "img"
