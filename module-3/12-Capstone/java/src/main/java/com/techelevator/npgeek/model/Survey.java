@@ -1,6 +1,6 @@
 package com.techelevator.npgeek.model;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.validation.constraints.Size;
@@ -9,14 +9,12 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 public class Survey {
-	
-	public static List<String> activityLevels = new ArrayList<>();
+
+	private static String[] activityLevelStrings = { "Inactive", "Sedentary", "Active", "Extremely Active" };
+	public static List<String> activityLevels;
 	
 	static {
-		activityLevels.add("Inactive");
-		activityLevels.add("Sedentary");
-		activityLevels.add("Active");
-		activityLevels.add("Extremely Active");
+		activityLevels = Arrays.asList(activityLevelStrings);
 	}
 	
 	private Long surveyId;
@@ -35,7 +33,6 @@ public class Survey {
 	private String state;
 	
 	@NotBlank(message="Activity Level is Required")
-	@Size(max=100, message="Activity Level cannot be over 100 characters")
 	private String activityLevel;
 	
 	public Long getSurveyId() {
@@ -69,4 +66,8 @@ public class Survey {
 		this.activityLevel = activityLevel;
 	}
 
+	public boolean validActivityLevel() {
+		if( activityLevel == null ) return false;
+		return activityLevels.contains(activityLevel);
+	}
 }
