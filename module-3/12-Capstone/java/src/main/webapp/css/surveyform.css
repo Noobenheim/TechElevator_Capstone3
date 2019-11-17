@@ -1,0 +1,61 @@
+
+.survey-form {
+	padding: 20px 20px 20px 25px;
+	color: black;
+	font-weight: bold;
+}
+
+.survey-parks {
+	padding: 10px;
+}
+
+.survey-email {
+	padding: 10px;
+}
+
+.survey-state {
+	padding: 10px;
+}
+
+.survey-activity {
+	padding: 10px;
+}
+
+.submit {
+	padding: 10px;
+}
+
+.error {
+	color: red;
+	font-weight: bold;
+}
+
+.survey-form > form > div > label {
+	width: 180px;
+	display: inline-block;
+}
+.survey-form span > label {
+	margin: 10px;
+}
+#survey > div > * {
+	display: inline-block;
+}
+@media screen and (max-width: 1050px) {
+	#survey > div {
+		display: flex;
+		flex-direction: column;
+	}
+	#survey > div > .error {
+		text-align: center;
+	}
+}
+@media screen and (max-width: 650px) {
+	#survey > div > .activity-radios {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		grid-template-rows: 1fr 1fr;
+	}
+	#survey > div > .activity-radios > span {
+		margin-top: 10px;
+	}
+}
