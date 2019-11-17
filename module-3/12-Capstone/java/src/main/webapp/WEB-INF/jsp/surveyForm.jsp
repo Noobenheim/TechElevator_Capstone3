@@ -25,7 +25,9 @@
 		</div>
 		<div class="survey-activity">
 			<form:label path="activityLevel">Activity Level</form:label>
-			<form:radiobuttons path="activityLevel" items="${activityLevels}" />
+			<div class="activity-radios">
+				<form:radiobuttons path="activityLevel" items="${activityLevels}" />
+			</div>
 			<form:errors path="activityLevel" cssClass="error" />
 		</div>
 		<div class="submit">

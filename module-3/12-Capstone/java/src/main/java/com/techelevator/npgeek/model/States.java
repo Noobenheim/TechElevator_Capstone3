@@ -1,10 +1,10 @@
 package com.techelevator.npgeek.model;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class States {
-	public static Map<String,String> states = new HashMap<>();
+	public static Map<String,String> states = new LinkedHashMap<>();
 	
 	static {
 		states.put("AL", "Alabama");

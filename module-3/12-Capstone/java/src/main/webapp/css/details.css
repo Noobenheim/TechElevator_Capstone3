@@ -101,6 +101,7 @@
 .five-day-forecast > div img {
 	width: 100%;
 	height: auto;
+	border-radius: 17px;
 }
 .five-day-forecast > div {
 	text-align: center;
@@ -108,7 +109,7 @@
 	border-radius: 17px;
 }
 .five-day-forecast > div.forecast-day-1 {
-	background-color: #72B01D;
+	background-color: #72B01D !important;
 	grid-area: one;
 }
 .five-day-forecast > div.forecast-day-2 {
@@ -144,6 +145,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
+	min-width: 95px;
 }
 .five-day-forecast > div img {
 	display: none;
@@ -231,6 +233,11 @@
 		padding: 0;
 	}
 }
+@media screen and (max-width: 775px) {
+	.five-day-forecast .forecast-advisory {
+		font-size: 10px;
+	}
+}
 @media screen and (max-width: 675px) {
 	.five-day-forecast {
 		grid-template-columns: 1fr 1fr;
@@ -241,5 +248,8 @@
 	        "three advthree"
 	        "four advfour"
 	        "five advfive";
+	}
+	.five-day-forecast .forecast-advisory {
+		font-size: 12px;
 	}
 }

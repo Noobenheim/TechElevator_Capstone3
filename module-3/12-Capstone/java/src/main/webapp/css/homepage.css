@@ -43,5 +43,9 @@ a:hover {
 	color: #38570e;
 }
 
-
-
+@media screen and (max-width: 775px) {
+	.park-list .park-info {
+		display: block;
+		text-align: center;
+	}
+}
