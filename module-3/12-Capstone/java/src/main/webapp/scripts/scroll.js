@@ -2,6 +2,7 @@ window.onscroll = function() { growShrinkLogo(); }
 var header = null;
 var heading = null;
 var lastScroll = 0;
+var scrollable = true;
 
 function growShrinkLogo() {
 	if( header == null ) {
@@ -11,15 +12,22 @@ function growShrinkLogo() {
 		heading = document.getElementsByClassName("park-name")[0];
 	}
 	var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-	
-	if( lastScroll < scroll && scroll > 150 ) {
+
+	if( scrollable && lastScroll < scroll && scroll > 75 ) {
+		lockScroll();
 		addClass(header, "scrolled");
 		addClass(heading, "scrolled");
-	} else if( lastScroll > scroll && scroll < 45 ) {
+	} else if( scrollable && lastScroll > scroll && scroll < 75 ) {
+		lockScroll();
 		removeClass(header, "scrolled");
 		removeClass(heading, "scrolled");
 	}
 	lastScroll = scroll;
+}
+
+function lockScroll() {
+	scrollable = false;
+	setTimeout(()=>{scrollable=true}, 200);
 }
 
 function getClasses(element) {
