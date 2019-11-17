@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import java.util.List;
 
@@ -34,6 +35,10 @@ public class JDBCForecastDAOTest extends DAOIntegrationTest {
 
 		String sqlInsertForecast = "INSERT INTO weather VALUES (?, ?, ?, ?, ?)";
 		int numberOfNewParksInserted = jdbc.update(sqlInsertForecast, parkCode, fiveDayForecastValue, low, high, forecast);
+		
+		if( numberOfNewParksInserted == 0 ) {
+			fail("Failed to insert into weather table");
+		}
 		
 		return fakeForecast;
 	}
