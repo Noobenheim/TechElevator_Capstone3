@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -86,6 +87,27 @@ public class NpGeekController {
 	public String submitSurvey(@Valid @ModelAttribute("survey") Survey survey,
 							   BindingResult result, 
 							   RedirectAttributes flashScope) {
+		// validate activity level
+		if( !survey.validActivityLevel() ) {
+			result.addError(new FieldError("survey", "activityLevel", "Invalid Activity Level"));
+		}
+		// validate park code
+		List<Park> parks = parkDAO.getAllParks();
+		boolean valid = false;
+		for( Park park : parks ) {
+			if( survey.getParkCode().equals(park.getParkCode()) ) {
+				valid = true;
+				break;
+			}
+		}
+		if( !valid ) {
+			result.addError(new FieldError("survey", "parkCode", "Invalid Park Code"));
+		}
+		// validate state
+		if( !States.states.keySet().contains(survey.getState()) ) {
+			result.addError(new FieldError("survey", "state", "Invalid State"));
+		}
+		
 		if( result.hasErrors() ) {
 			flashScope.addFlashAttribute("survey", survey);
 			flashScope.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX+"survey", result);
