@@ -213,7 +213,8 @@
 		display: inline;
 	}
 	.park-details .park-name.scrolled {
-		text-align: right;
+		right: 0;
+		transform: none;
 	}
 }
 @media screen and (max-width: 900px) {
@@ -231,6 +232,8 @@
 		background-color: #A5FFD6;
 		margin: 0 -20px;
 		border-bottom: 5px solid #72B01D;
+		display: block !important;
+		transform: none !important;
 	}
 	.five-day-forecast > div {
 		padding: 0;
