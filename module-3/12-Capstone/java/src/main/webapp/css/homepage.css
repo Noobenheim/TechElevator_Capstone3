@@ -1,0 +1,51 @@
+
+.park-list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.park-list .park-info {
+	display: grid;
+	grid-template-columns: [col1] auto [col2] auto;
+	grid-template-rows: [row1] auto [row2] 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 10px;
+	padding: 20px 20px 20px 20px;
+}
+
+.park-list .park-image {
+	grid-column: col1;
+	grid-row: row1/span 2;;
+}
+
+.park-list .park-image img {
+	width: 300px;
+	border-radius: 100%;
+}
+
+.park-list .park-name {
+	grid-column: col2;
+	grid-row: row1;
+	font-weight: bold;
+}
+
+.park-list .park-description {
+	grid-column: col2;
+	grid-row: row2;
+}
+
+a {
+	text-decoration: none;	
+	color: black;
+}
+
+a:hover {
+	color: #38570e;
+}
+
+@media screen and (max-width: 775px) {
+	.park-list .park-info {
+		display: block;
+		text-align: center;
+	}
+}

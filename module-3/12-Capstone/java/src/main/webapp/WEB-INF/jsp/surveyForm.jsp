@@ -1,7 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<%@include file="common/header.jsp" %>
+<c:import url="/WEB-INF/jsp/common/header.jsp">
+</c:import>
+
+<link rel="stylesheet" href="<c:url value="/css/surveyform.css" />" />
 
 <div class="survey-form">
 	<form:form action="survey" method="POST" modelAttribute="survey">
@@ -22,13 +25,16 @@
 		</div>
 		<div class="survey-activity">
 			<form:label path="activityLevel">Activity Level</form:label>
-			<form:radiobuttons path="activityLevel" items="${activityLevels}" />
-			<form:errors path="activityLevel" />
+			<div class="activity-radios">
+				<form:radiobuttons path="activityLevel" items="${activityLevels}" />
+			</div>
+			<form:errors path="activityLevel" cssClass="error" />
 		</div>
-		<div>
+		<div class="submit">
 			<input type="submit" value="Submit" />
 		</div>
 	</form:form>
 </div>
 
-<%@include file="common/footer.jsp" %>
+<c:import url="/WEB-INF/jsp/common/footer.jsp">
+</c:import>

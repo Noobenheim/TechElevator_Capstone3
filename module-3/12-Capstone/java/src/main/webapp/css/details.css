@@ -1,0 +1,260 @@
+.park-details {
+	margin: 0 20px;
+}
+.park-details .park-details-header {
+	display: grid;
+	grid-template-areas:
+		"img info"
+		"img quote";
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto 1fr;
+	grid-column-gap: 20px;
+}
+.park-details .park-quote {
+	grid-area: quote;
+	align-self: center;
+	justify-self: center;
+}
+.park-details .park-image {
+	text-align: center;
+	grid-area: img;
+}
+.park-details .park-image img {
+	width: 100%;
+}
+.park-details .park-name {
+	font-size: 2.5em;
+	font-weight: bold;
+	text-align: center;
+	margin: 15px;
+	position: sticky;
+	top: 15px;
+	z-index: 1000;
+}
+.park-details .park-name.scrolled {
+	color: lime;
+	display: inline-block;
+	left: 100%;
+}
+.park-details .park-information > div > span.label {
+	font-weight: bold;
+}
+.park-details .park-information-header {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+}
+.park-details .park-information {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-area: info;
+}
+.park-details .park-quote .value {
+	position: relative;
+	background: #328709;
+	border-radius: .4em;
+	font-size: 18px;
+	display: inline-block;
+	text-align: center;
+	padding: 35px;
+	margin-bottom: 1em;
+	color: white;
+}
+.park-details .park-quote .value:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 0.906em solid transparent;
+	border-top-color: #328709;
+	border-bottom: 0;
+	border-right: 0;
+	margin-left: -0.453em;
+	margin-bottom: -0.906em;
+}
+.park-details .park-quote .park-quote-source {
+	padding: 0 20px;
+	font-style: italic;
+	text-align: center;
+}
+.park-details .park-description {
+	text-align: justify;
+	padding: 25px;
+}
+.park-details .park-entry .value:before {
+	content: "$";
+}
+
+
+/* forecast */
+.five-day-forecast {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-areas:
+		"unit unit unit unit unit"
+		"one two three four five"
+		"advone advtwo advthree advfour advfive";
+	grid-column-gap: 20px;
+	justify-items: center;
+	margin: 20px;
+	align-items: stretch;
+}
+.five-day-forecast > div img {
+	width: 100%;
+	height: auto;
+	border-radius: 17px;
+}
+.five-day-forecast > div {
+	text-align: center;
+	padding: 10px;
+	border-radius: 17px;
+}
+.five-day-forecast > div.forecast-day-1 {
+	background-color: #72B01D !important;
+	grid-area: one;
+}
+.five-day-forecast > div.forecast-day-2 {
+	grid-area: two;
+}
+.five-day-forecast > div.forecast-day-3 {
+	grid-area: three;
+}
+.five-day-forecast > div.forecast-day-4 {
+	grid-area: four;
+}
+.five-day-forecast > div.forecast-day-5 {
+	grid-area: five;
+}
+.five-day-forecast > div.forecast-advisories-day-1 {
+	grid-area: advone;
+}
+.five-day-forecast > div.forecast-advisories-day-2 {
+	grid-area: advtwo;
+}
+.five-day-forecast > div.forecast-advisories-day-3 {
+	grid-area: advthree;
+}
+.five-day-forecast > div.forecast-advisories-day-4 {
+	grid-area: advfour;
+}
+.five-day-forecast > div.forecast-advisories-day-5 {
+	grid-area: advfive;
+}
+.five-day-forecast > div:nth-child(2n) {
+	background-color: #3F7D20;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	min-width: 95px;
+}
+.five-day-forecast > div img {
+	display: none;
+}
+.five-day-forecast > div.forecast-day-1:before {
+	content: "Today";
+	font-weight: bold;
+	font-size: 18px;
+	text-align: center;
+	display: block;
+}
+.five-day-forecast .forecast-high:before {
+	content: "High: ";
+	font-weight: bold;
+}
+.five-day-forecast .forecast-low:before {
+	content: "Low: ";
+	font-weight: bold;
+}
+.five-day-forecast .forecast-advisories {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	left: 0;
+}
+.five-day-forecast .forecast-advisory {
+	background-color: rgba(255,0,0,0.7);
+	font-weight: bold;
+	padding: 10px;
+	font-size: 14pt;
+	border-radius: 18px;
+	border: 2px solid black;
+}
+.five-day-forecast .unit-switch {
+	grid-column: 1/span 5;
+	background-color: #72B01D !important;
+	padding: 10px 0;
+	width: 200px;
+	margin-bottom: 20px;
+	grid-area: unit;
+}
+.five-day-forecast .unit-switch form {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+.five-day-forecast .unit-switch h2 {
+	margin: 0;
+}
+@media screen and (max-width: 1335px) {
+	.five-day-forecast {
+		grid-column-gap: 0;
+	}
+	.five-day-forecast > div:nth-child(2n) {
+		background-color: white !important;
+		border: 2px solid #72B01D;
+	}
+	.five-day-forecast .icon {
+		display: none;
+	}
+	.five-day-forecast > div img {
+		display: inline;
+	}
+	.park-details .park-name.scrolled {
+		right: 0;
+		transform: none;
+	}
+}
+@media screen and (max-width: 1175px) {
+	.park-details .park-details-header {
+		grid-template-areas:
+	        "img"
+	        "quote"
+	        "info";
+   		grid-template-columns: 1fr;
+	}
+	.park-details .park-name {
+		top: 66px;
+		color: black !important;
+		text-align: center !important;
+		background-color: #A5FFD6;
+		margin: 0 -20px;
+		border-bottom: 5px solid #72B01D;
+		display: block !important;
+		transform: none !important;
+	}
+	.five-day-forecast > div {
+		padding: 0;
+	}
+}
+@media screen and (max-width: 775px) {
+	.five-day-forecast .forecast-advisory {
+		font-size: 10px;
+	}
+}
+@media screen and (max-width: 675px) {
+	.five-day-forecast {
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas:
+	        "unit unit"
+	        "one advone"
+	        "two advtwo"
+	        "three advthree"
+	        "four advfour"
+	        "five advfive";
+	}
+	.five-day-forecast .forecast-advisory {
+		font-size: 12px;
+	}
+}

@@ -1,0 +1,17 @@
+.favorite-parks {
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	align-items: center;
+	justify-items: center;
+}
+.favorite-parks .park-image {
+	text-align: right;
+}
+.favorite-parks .park-image img {
+	width: 50%;
+	height: auto;
+}
+.favorite-parks .title {
+	font-weight: bold;
+	font-size: 18pt;
+}
