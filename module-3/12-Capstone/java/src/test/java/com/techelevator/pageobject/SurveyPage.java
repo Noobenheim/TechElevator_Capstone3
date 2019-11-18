@@ -37,7 +37,7 @@ public class SurveyPage extends Page {
 	}
 	
 	public FavoritesPage submitForm() {
-		WebElement submitButton = webDriver.findElement(By.className("submit"));
+		WebElement submitButton = webDriver.findElement(By.cssSelector("input[type=submit]"));
 		submitButton.click();
 		return new FavoritesPage(webDriver); 
 	}

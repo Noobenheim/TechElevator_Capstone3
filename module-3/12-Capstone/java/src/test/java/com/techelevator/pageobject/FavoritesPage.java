@@ -1,8 +1,10 @@
 package com.techelevator.pageobject;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class FavoritesPage extends Page {
 
@@ -10,12 +12,16 @@ public class FavoritesPage extends Page {
 		super(webDriver);
 	}
 
-	public String getFavoriteCount() { 
-		return webDriver.findElement(By.cssSelector("/html/body/section/div/div[15]")).getText().trim(); 
+	public int getFavoriteCount(String parkName) {
+		List<WebElement> parks = webDriver.findElements(By.cssSelector(".favorite-parks > div"));
+		
+		for( int i=3; i<parks.size(); i+=3 ) { // 3 to skip the header
+			String park = parks.get(i+1).getText().trim();
+			if( park.equals(parkName) ) {
+				String[] voteSplit = parks.get(i+2).getText().trim().split(" ");
+				return Integer.parseInt(voteSplit[0]);
+			}
+		}
+		return 0; 
 	}
-
-	public String getFavoriteParkName() {
-		return webDriver.findElement(By.cssSelector("/html/body/section/div/div[14]")).getText().trim();
-	}
-
 }

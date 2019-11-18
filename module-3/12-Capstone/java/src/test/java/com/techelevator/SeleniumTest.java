@@ -15,7 +15,7 @@ import com.techelevator.pageobject.HomePage;
 
 public abstract class SeleniumTest {
 
-	private static WebDriver webDriver;
+	protected static WebDriver webDriver;
 	protected HomePage homePage;
 	
 	protected String rootURL = "http://localhost:8080/m3-java-capstone/";
