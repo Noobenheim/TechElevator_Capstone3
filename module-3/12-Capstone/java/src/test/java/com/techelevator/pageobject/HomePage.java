@@ -25,4 +25,10 @@ public class HomePage extends Page {
 		}
 		return null;
 	}
+	
+	public SurveyPage goToSurveyPage() {
+		WebElement surveyLink = webDriver.findElement(By.linkText("Survey"));
+		surveyLink.click();
+		return new SurveyPage(webDriver);
+	}
 }
