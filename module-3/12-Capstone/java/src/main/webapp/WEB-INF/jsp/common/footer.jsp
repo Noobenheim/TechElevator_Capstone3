@@ -1,7 +1,7 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 </section>
 </body>
-
-<link rel="stylesheet" href="<c:url value="/css/header.css" />" />
 
 <div class="footer">
 

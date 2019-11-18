@@ -2,15 +2,10 @@ package com.techelevator;
 
 import static org.junit.Assert.assertEquals;
 
-import java.sql.Date;
 import java.util.List;
-
-import javax.sql.DataSource;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 import com.techelevator.npgeek.model.JDBCParkDAO;
 import com.techelevator.npgeek.model.Park;

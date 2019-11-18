@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@page pageEncoding="UTF-8" %>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp">
 	<c:param name="css" value="details" />
@@ -28,7 +29,7 @@
 			</div>
 			<div class="park-elevation">
 				<span class="label">Elevation (ft): </span>
-				<span class="value">${park.elevationInFeet}</span>
+				<span class="value"><fmt:formatNumber value="${park.elevationInFeet}" /></span>
 			</div>
 			<div class="park-miles">
 				<span class="label">Trail Miles: </span>
@@ -36,7 +37,7 @@
 			</div>
 			<div class="park-campsites">
 				<span class="label">Number of Campsites: </span>
-				<span class="value">${park.numberOfCampsites}</span>
+				<span class="value"><fmt:formatNumber value="${park.numberOfCampsites}" /></span>
 			</div>
 			<div class="park-climate">
 				<span class="label">Climate: </span>
